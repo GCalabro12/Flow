@@ -1564,7 +1564,7 @@
   }
   let nubeTimer = null;
   function nubeGuardar(){
-    if (!nube.ref) return;
+    try{ if (!nube.ref) return; }catch(e){ return; }   // aún no hay nube (arranque)
     clearTimeout(nubeTimer);
     nubeTimer = setTimeout(()=>{ nube.ref.set({ historial: readLowHistory(), actualizado: new Date().toISOString() }).catch(()=>{}); }, 1500);
   }
