@@ -1,4 +1,4 @@
-const CACHE = 'flow-cache-v230';
+const CACHE = 'flow-cache-v231';
 self.addEventListener('install', e => { self.skipWaiting(); });
 self.addEventListener('activate', e => {
   e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k.startsWith('flow-cache-') && k !== CACHE).map(k => caches.delete(k))))
